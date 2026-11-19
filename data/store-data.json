@@ -18,7 +18,7 @@
       "id": "col-3",
       "title": "Silk Road Evening Wear",
       "subtitle": "Luxury Silk Ensembles",
-      "image": "https://i.pinimg.com/1200x/c0/a3/cc/c0a3cc0991d75009fc62ff81a95821b0.jpg",
+      "image": "images/Sunlit Purple Embroidered Ensemble.png",
       "gender": "women"
     }
   ],
@@ -31,7 +31,7 @@
       "price": 680,
       "rating": 5.0,
       "reviews": 14,
-      "image": "https://i.pinimg.com/1200x/d9/d3/0a/d9d30a7b28aa4987f132ad64ea052ce7.jpg",
+      "image": "images/Magenta Embroidered Ensemble in an Ornate Interior.png",
       "description": "A structured wool-blend long coat featuring dense Hazaragi geometric cross-stitch embroidery along the lapels, cuffs, and back yoke.",
       "details": [
         "Heavyweight wool-blend",
@@ -53,7 +53,7 @@
       "price": 490,
       "rating": 4.9,
       "reviews": 22,
-      "image": "https://i.pinimg.com/1200x/51/07/d6/5107d6543859ec4571642fc48c4f7528.jpg",
+      "image": "images/Emerald Geometric Traditional Ensemble.png",
       "description": "Crafted from heavy matte silk in rich Burgundy and Lapis Blue tones, this midi dress is adorned with vibrant gold hand-embroidered motifs.",
       "details": [
         "100% Organic Silk",
@@ -75,7 +75,7 @@
       "price": 420,
       "rating": 4.8,
       "reviews": 9,
-      "image": "https://i.pinimg.com/1200x/2c/77/b3/2c77b38b07fbbcc0f184f3d682a783fb.jpg",
+      "image": "images/be86fd30-e1a6-4e65-847c-289af839be61.png",
       "description": "An elegant wrap-style midi dress with structured sleeves, featuring colorful artisanal cuffs celebrating traditional Afghan textile patterns.",
       "details": [
         "Cotton-silk blend",
@@ -97,7 +97,49 @@
       "price": 750,
       "rating": 5.0,
       "reviews": 18,
-      "image": "https://i.pinimg.com/1200x/fa/4e/43/fa4e430f1a45624ecab4c76af16dd6f8.jpg",
+      "image": "images/Sunlit Purple Embroidered Ensemble.png",
+      "description": "An opulent velvet statement cape adorned with ornate metallic gold and burgundy embroidery. Designed for luxurious warmth.",
+      "details": [
+        "Premium cotton velvet",
+        "Metallic thread embroidery",
+        "Fully lined",
+        "Statement luxury outerwear"
+      ],
+      "colors": [
+        "Burgundy Wine",
+        "Obsidian Black"
+      ]
+    },
+       {
+      "id": 5,
+      "name": "The Pamir Velvet Statement Cape",
+      "category": "Outerwear",
+      "gender": "women",
+      "price": 750,
+      "rating": 5.0,
+      "reviews": 18,
+      "image": "images/Teal Embroidered Ensemble in Arched Interior.png",
+      "description": "An opulent velvet statement cape adorned with ornate metallic gold and burgundy embroidery. Designed for luxurious warmth.",
+      "details": [
+        "Premium cotton velvet",
+        "Metallic thread embroidery",
+        "Fully lined",
+        "Statement luxury outerwear"
+      ],
+      "colors": [
+        "Burgundy Wine",
+        "Obsidian Black"
+      ]
+    },
+         {
+      "id": 5,
+      "name": "The Pamir Velvet Statement Cape",
+      "category": "Outerwear",
+      "gender": "women",
+      "price": 750,
+      "rating": 5.0,
+      "reviews": 18,
+      "image": "images/Emerald Embroidered Courtyard Ensemble.png",
       "description": "An opulent velvet statement cape adorned with ornate metallic gold and burgundy embroidery. Designed for luxurious warmth.",
       "details": [
         "Premium cotton velvet",
@@ -111,7 +153,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "The Hindu Kush Embroidered Blazer",
       "category": "Outerwear",
       "gender": "men",
@@ -133,7 +175,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "The Zarin Silk Men's Kurta & Vest Set",
       "category": "Ensemble",
       "gender": "men",
