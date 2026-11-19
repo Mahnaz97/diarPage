@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diar ديار | A Heritage You Carry</title>
     <!-- Google Fonts: Playfair Display & Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -18,8 +18,13 @@
     </div>
 
     <header>
-         <!-- Text and Logo -->
         <div class="nav-container">
+            <!-- Mobile Hamburger Button -->
+            <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Text and Logo -->
             <a href="#home" class="logo">
                 <img src="images/Deyar-logo.png" alt="Diar logo" class="logo-img">
                 <div class="logo-text">
@@ -28,7 +33,7 @@
                 </div>
             </a>
 
-             <!-- Menu -->
+            <!-- Desktop Menu -->
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#collections">Collections</a></li>
@@ -38,31 +43,42 @@
                 <li><a href="#contact">Contact us</a></li>
             </ul>
 
-             <!-- Language options select -->
+            <!-- Right Controls -->
             <div class="nav-right">
-                <select class="lang-select">
-                    <option value="en">English</option>
-                    <option value="sv">Svenska</option>
-                    <option value="fa">فارسی</option>
+                <select class="lang-select" aria-label="Select language">
+                    <option value="en">EN</option>
+                    <option value="sv">SV</option>
+                    <option value="fa">FA</option>
                 </select>
 
-                 <!-- Wishlist -->
-                <button class="icon-btn" id="wishlistBtn">
+                <!-- Wishlist -->
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
                     <i class="fa-regular fa-heart"></i>
                     <span class="badge" id="wishlistBadge">0</span>
                 </button>
 
-                 <!-- Shopping bag -->
-                <button class="icon-btn" id="cartBtn" >
+                <!-- Shopping bag -->
+                <button class="icon-btn" id="cartBtn" aria-label="Shopping bag">
                     <i class="fa-solid fa-bag-shopping"></i>
                     <span class="badge" id="cartBadge">0</span>
                 </button>
             </div>
         </div>
+
+        <!-- Mobile Slide-Down Navigation -->
+        <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+            <ul>
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#collections" onclick="closeMobileMenu()">Collections</a></li>
+                <li><a href="#all-products" onclick="closeMobileMenu()">All Products</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">About us</a></li>
+                <li><a href="#artisans" onclick="closeMobileMenu()">Hands behind the thread</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact us</a></li>
+            </ul>
+        </nav>
     </header>
 
-
-        <!-- Hero Banner -->       
+    <!-- Hero Banner -->       
     <section id="home" class="hero">
         <div class="hero-bg">
             <img src="https://i.pinimg.com/1200x/97/09/87/970987e1bb6272b39ed954bd6947719c.jpg" alt="Diar Afghan Fashion">
@@ -79,9 +95,8 @@
         </div>
     </section>
 
-
-    <!-- collections -->
-    <section id="collections">
+    <!-- Collections -->
+    <section id="collections" class="container-section">
         <div class="section-header">
             <span class="section-badge">Curated Lineup</span>
             <h2>Featured Collections</h2>
@@ -92,13 +107,11 @@
             <button class="filter-btn" data-filter="women" onclick="renderCollections('women')">Women</button>
             <button class="filter-btn" data-filter="men" onclick="renderCollections('men')">Men</button>
         </div>
-        <div class="collections-grid" id="collectionsGrid">
-                    </div>
+        <div class="collections-grid" id="collectionsGrid"></div>
     </section>
 
-
     <!-- All Products -->
-    <section id="all-products">
+    <section id="all-products" class="container-section">
         <div class="section-header">
             <span class="section-badge">Bespoke Catalog</span>
             <h2>All Products</h2>
@@ -108,13 +121,10 @@
             <button class="filter-btn" data-filter="women" onclick="renderProducts('women')">Women</button>
             <button class="filter-btn" data-filter="men" onclick="renderProducts('men')">Men</button>
         </div>
-        <div class="products-grid" id="productsGrid">
-                    </div>
+        <div class="products-grid" id="productsGrid"></div>
     </section>
 
-
-
-        <!-- About Diar -->
+    <!-- About Diar -->
     <section id="about" class="story-section">
         <div class="story-grid">
             <div class="story-text">
@@ -139,7 +149,6 @@
         </div>
     </section>
 
-
     <!-- Hands behind the thread -->
     <section id="artisans" class="artisans-section">
         <div class="artisans-grid">
@@ -159,9 +168,8 @@
         </div>
     </section>
 
-
-        <!-- Footer -->
-    <footer>
+    <!-- Footer -->
+    <footer id="contact">
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="logo footer-logo">
@@ -215,7 +223,7 @@
         <div class="cart-panel">
             <div class="cart-header">
                 <h3>Your Shopping Bag</h3>
-                <button class="icon-btn" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+                <button class="icon-btn" aria-label="Close bag" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="cart-body" id="cartBody"></div>
             <div class="cart-footer">
@@ -239,4 +247,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-

@@ -23,7 +23,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     $('cartBtn').onclick = toggleCart;
     $('wishlistBtn').onclick = () =>
         showToast('Wishlist', `You have ${wishlist.length} saved pieces in your favorites.`);
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = $('mobileMenuBtn');
+    const mobileNav = $('mobileNav');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.toggle('active');
+        mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+        mobileMenuBtn.innerHTML = isOpen
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // Close mobile menu when clicking outside header
+    document.addEventListener('click', (e) => {
+        if (mobileNav.classList.contains('active') && !e.target.closest('header')) {
+            closeMobileMenu();
+        }
+    });
 });
+
+function closeMobileMenu() {
+    const mobileNav = $('mobileNav');
+    const mobileMenuBtn = $('mobileMenuBtn');
+    if (!mobileNav) return;
+    mobileNav.classList.remove('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+}
 
 /* ---------- Collections ---------- */
 function setActiveFilter(containerId, filter) {
@@ -35,7 +63,7 @@ function renderCollections(filter = 'all') {
     const collections = storeData.collections.filter(c => filter === 'all' || c.gender === filter);
 
     $('collectionsGrid').innerHTML = collections.map(c => `
-        <div class="collection-card" onclick="renderProducts('${c.gender}')">
+        <div class="collection-card" onclick="renderProducts('${c.gender}'); document.getElementById('all-products').scrollIntoView({behavior: 'smooth'})">
             ${img(c.image, c.title)}
             <div class="collection-overlay">
                 <span>${c.subtitle}</span>
@@ -47,9 +75,7 @@ function renderCollections(filter = 'all') {
     setActiveFilter('collectionFilters', filter);
 }
 
-/* ---------- products ---------- */
-
-
+/* ---------- Products ---------- */
 function renderProducts(filter) {
     currentFilter = filter;
     const products = storeData.products.filter(p => filter === 'all' || p.gender === filter);
@@ -97,7 +123,7 @@ function openProductModal(id) {
                     <span><i class="fa-solid fa-star"></i> ${p.rating} (${p.reviews})</span>
                 </div>
                 <h2>${p.name}</h2>
-                <div class="modal-price">$${p.price}.00</div>
+                <div class="modal-price">${p.price} SEK</div>
                 <p class="modal-desc">${p.description}</p>
                 <div class="modal-section">
                     <h4>Available Colors:</h4>
@@ -136,6 +162,7 @@ function toggleWishlist(id) {
 
 /* ---------- Cart ---------- */
 function toggleCart() {
+    closeMobileMenu();
     $('cartDrawer').classList.toggle('active');
 }
 
@@ -151,7 +178,7 @@ function addToCart(id) {
 }
 
 function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id);
+    cart = cart.filter(item => item !== id);
     updateCartUI();
 }
 
@@ -160,14 +187,14 @@ function updateCartUI() {
     const subtotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
     $('cartBadge').textContent = count;
-    $('cartSubtotal').textContent = `$${subtotal}.00`;
+    $('cartSubtotal').textContent = `${subtotal} SEK`;
     $('cartBody').innerHTML = cart.length
         ? cart.map(i => `
             <div class="cart-item">
                 ${img(i.image, i.name)}
                 <div>
                     <h4>${i.name}</h4>
-                    <div class="cart-item-price">$${i.price}.00 × ${i.quantity}</div>
+                    <div class="cart-item-price">${i.price} SEK × ${i.quantity}</div>
                 </div>
                 <button class="cart-remove" aria-label="Remove" onclick="removeFromCart(${i.id})">
                     <i class="fa-solid fa-trash-can"></i>
